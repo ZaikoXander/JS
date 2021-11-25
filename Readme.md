@@ -1,0 +1,1 @@
+Este repositório contém os meus estudos de JavaScript.

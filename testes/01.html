@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Jogo</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+            text-align: center;
+            background:cornflowerblue;
+            color: white;
+        }
+        h1 {
+            text-shadow: 4px 0 10px black,
+                        -4px 0 10px black,
+                        0 4px 10px black,
+                        0 -4px 10px black,
+                        4px 4px 10px black,
+                        -4px 4px 10px black,
+                        4px -4px 10px black,
+                        -4px -4px 10px black;
+        }
+        input[type=button] {
+            padding: 15px;
+            margin: 10px;
+            width: 200px;
+            border: 3px solid gray;
+            border-radius: 10px;
+        }
+        #creator {
+            position: absolute;
+            bottom: 0;
+            font: normal 10pt Arial;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>O jogo</h1>
+    <input id="p" type="button" value="Perdi" onclick="perdi()"><input id="g" type="button" value="Ganhei" onclick="ganhei()">
+    <div id="res"></div>
+    <div id="creator">Zaiko Xander</div>
+    <script>
+        function perdi() {
+            var res = document.querySelector('div#res')
+            res.innerHTML = '<p><strong>Haha otário! kkk</strong></p>'
+        }
+        function ganhei() {
+            var res = document.querySelector('div#res')
+            res.innerHTML = '<p><strong>Mitiroso!!!</strong></p>'
+        }
+        var p = document.querySelector('input#p')
+        var g = document.querySelector('input#g')
+        p.addEventListener('mouseenter', entrarp)
+        p.addEventListener('mouseout', sairp)
+        p.addEventListener('click', clickp)
+        g.addEventListener('mouseenter', entrarg)
+        g.addEventListener('mouseout', sairg)
+        g.addEventListener('click', clickg)
+        function entrarp() {
+            p.style.background = 'blue'
+            p.style.border = '3px solid white'
+        }
+        function sairp() {
+            p.style.background = 'white'
+            p.style.border = '3px solid gray'
+            p.style.color = 'black'
+        }
+        function clickp() {
+            p.style.background = 'darkblue'
+            p.style.color = 'white'
+        }
+        function entrarg() {
+            g.style.background = 'red'
+            g.style.border = '3px solid white'
+        }
+        function sairg() {
+            g.style.background = 'white'
+            g.style.border = '3px solid gray'
+            g.style.color = 'black'
+        }
+        function clickg() {
+            g.style.background = 'darkred'
+            g.style.color = 'white'
+        }
+    </script>
+</body>
+</html>
