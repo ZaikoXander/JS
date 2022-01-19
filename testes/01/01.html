@@ -1,55 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O Jogo</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font: normal 18pt Arial;
-            text-align: center;
+            font-weight: normal;
+            font-size: 1.2em;
+            font-family: Arial, Helvetica, sans-serif;
             background:cornflowerblue;
-            color: white;
+            color: #DAE8FE;
+
         }
+
+        main {
+            width: 50%;
+            margin-left: 25%;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         h1 {
-            text-shadow: 4px 0 10px black,
-                        -4px 0 10px black,
-                        0 4px 10px black,
-                        0 -4px 10px black,
-                        4px 4px 10px black,
-                        -4px 4px 10px black,
-                        4px -4px 10px black,
-                        -4px -4px 10px black;
+            width: max-content;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+            font-family: 'Times New Roman', Times, serif;
         }
+
+        p {
+            font-weight: bold;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+        }
+
+        #botoes {
+            padding: 30px 0;
+        }
+
         input[type=button] {
             padding: 15px;
             margin: 10px;
             width: 200px;
-            border: 3px solid gray;
+            border: 2px solid #2E446E;
             border-radius: 10px;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+            font-weight: bold;
+            letter-spacing: 3px;
+            background-color: #ADC4F0;
         }
-        #creator {
+
+        #autor {
             position: absolute;
             bottom: 0;
-            font: normal 10pt Arial;
-            margin-bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            padding: 10px 0;
+            font-weight: normal;
+            font-size: 1em;
+            background-color: #2E446E;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>O jogo</h1>
-    <input id="p" type="button" value="Perdi" onclick="perdi()"><input id="g" type="button" value="Ganhei" onclick="ganhei()">
-    <div id="res"></div>
-    <div id="creator">Zaiko Xander</div>
+    <main>
+        <h1>O Jogo</h1>
+        <div id="botoes">
+            <input id="p" type="button" value="Perdi" onclick="perdi()">
+            <input id="g" type="button" value="Ganhei" onclick="ganhei()">
+        </div>
+        <div id="res"></div>
+    </main>
+    <footer id="autor">Zaiko Xander</footer>
     <script>
         function perdi() {
             var res = document.querySelector('div#res')
-            res.innerHTML = '<p><strong>Haha otário! kkk</strong></p>'
+            res.innerHTML = '<p>Haha otário! kkk</p>'
         }
         function ganhei() {
             var res = document.querySelector('div#res')
-            res.innerHTML = '<p><strong>Mitiroso!!!</strong></p>'
+            res.innerHTML = '<p>Mitiroso!!!</p>'
         }
         var p = document.querySelector('input#p')
         var g = document.querySelector('input#g')
@@ -59,30 +100,35 @@
         g.addEventListener('mouseenter', entrarg)
         g.addEventListener('mouseout', sairg)
         g.addEventListener('click', clickg)
+        /* Sim eu podia ter usado CSS pra isso,
+        mas estava querendo treinar DOM blz?
+        */
         function entrarp() {
-            p.style.background = 'blue'
-            p.style.border = '3px solid white'
+            p.style.background = '#2E446E'
+            p.style.border = '2px solid #ADC4F0'
+            p.style.color = 'white'
         }
         function sairp() {
-            p.style.background = 'white'
-            p.style.border = '3px solid gray'
+            p.style.background = '#ADC4F0'
+            p.style.border = '2px solid #2E446E'
             p.style.color = 'black'
         }
         function clickp() {
-            p.style.background = 'darkblue'
+            p.style.background = '#4E74BA'
             p.style.color = 'white'
         }
         function entrarg() {
-            g.style.background = 'red'
-            g.style.border = '3px solid white'
+            g.style.background = '#2E446E'
+            g.style.border = '2px solid #ADC4F0'
+            g.style.color = 'white'
         }
         function sairg() {
-            g.style.background = 'white'
-            g.style.border = '3px solid gray'
+            g.style.background = '#ADC4F0'
+            g.style.border = '2px solid #2E446E'
             g.style.color = 'black'
         }
         function clickg() {
-            g.style.background = 'darkred'
+            g.style.background = '#4E74BA'
             g.style.color = 'white'
         }
     </script>
